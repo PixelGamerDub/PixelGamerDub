@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AssetsAndSprites/NouvelleCrepe.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.9564
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 2
+gravity_scale = 6.0
+
+[node name="TextureDeLaCrepe" type="Sprite" parent="."]
+position = Vector2( 455.499, 280.882 )
+scale = Vector2( 0.38042, 0.377973 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 454.831, 280.962 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}

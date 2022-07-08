@@ -1,0 +1,295 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://AssetsAndSprites/NouvellePoele.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ScriptDuPointsApparitions.gd" type="Script" id=2]
+[ext_resource path="res://AssetsAndSprites/NouvelleForet.png" type="Texture" id=3]
+[ext_resource path="res://AssetsAndSprites/Beach House.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/ScriptDeLaPoele.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/ScriptDuProcedeDuJeu.gd" type="Script" id=6]
+[ext_resource path="res://Font/Name Smile.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scenes/Crepe.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AssetsAndSprites/Picked Coin Echo 2.wav" type="AudioStream" id=9]
+[ext_resource path="res://AssetsAndSprites/game_over_bad_chest.wav" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 7 )
+
+[node name="Jeu" type="Node2D"]
+script = ExtResource( 6 )
+crepe = ExtResource( 8 )
+
+[node name="SpawnDesCrepes" type="Timer" parent="."]
+autostart = true
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.780195, 0.747624 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BordureGauche" type="StaticBody2D" parent="."]
+position = Vector2( -40, 488 )
+scale = Vector2( 0.3, 6 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HitboxBordureGauche" type="CollisionShape2D" parent="BordureGauche"]
+position = Vector2( 0, -3.05176e-05 )
+shape = SubResource( 1 )
+
+[node name="BordureDroite" type="StaticBody2D" parent="."]
+position = Vector2( 1056, 488 )
+scale = Vector2( 0.3, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HitboxBordureGauche" type="CollisionShape2D" parent="BordureDroite"]
+position = Vector2( 0, -3.05176e-05 )
+shape = SubResource( 1 )
+
+[node name="PointsApparitions" type="Node2D" parent="."]
+position = Vector2( -448, -320 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SpawnDeCrepe1" type="Position2D" parent="PointsApparitions"]
+
+[node name="SpawnDeCrepe2" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 64, 0 )
+
+[node name="SpawnDeCrepe3" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 128, 0 )
+
+[node name="SpawnDeCrepe4" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 192, 0 )
+
+[node name="SpawnDeCrepe5" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 256, 0 )
+
+[node name="SpawnDeCrepe6" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 320, 0 )
+
+[node name="SpawnDeCrepe7" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 384, 0 )
+
+[node name="SpawnDeCrepe8" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 448, 0 )
+
+[node name="SpawnDeCrepe9" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 512, 0 )
+
+[node name="SpawnDeCrepe10" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 576, 0 )
+
+[node name="SpawnDeCrepe11" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 640, 0 )
+
+[node name="SpawnDeCrepe12" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 704, 0 )
+
+[node name="SpawnDeCrepe13" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 768, 0 )
+
+[node name="SpawnDeCrepe14" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 832, 0 )
+
+[node name="SpawnDeCrepe15" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 896, 0 )
+
+[node name="SpawnDeCrepe16" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 960, 0 )
+
+[node name="SpawnDeCrepe17" type="Position2D" parent="PointsApparitions"]
+position = Vector2( 1024, 0 )
+
+[node name="Poele" type="KinematicBody2D" parent="."]
+collision_layer = 2147483649
+collision_mask = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureDeLaPoele" type="Sprite" parent="Poele"]
+position = Vector2( 508, 471.543 )
+scale = Vector2( 0.0388571, 0.0709604 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ZoneHitboxDeLaCrepe" type="Area2D" parent="Poele"]
+collision_layer = 2147483652
+collision_mask = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HitboxDeLaPoele" type="CollisionPolygon2D" parent="Poele/ZoneHitboxDeLaCrepe"]
+position = Vector2( 480.542, 473.868 )
+polygon = PoolVector2Array( -0.514954, -38.0954, 15.5212, -35.4227, 32.0028, -26.9592, 41.8027, -14.932, 45.8118, -5.57761, 47.1481, 3.33139, 45.3663, 13.5767, 40.4664, 26.4948, 27.9938, 36.7401, 13.7394, 42.9763, 3.93951, 43.4218, -11.6512, 42.0855, -25.9056, 34.9583, -35.26, 26.4948, -41.0509, 11.7949, -41.4963, -4.24124, -38.8236, -13.5957, -31.6964, -22.5047, -20.1147, -31.8591 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Position" type="Position2D" parent="Poele"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Poele"]
+polygon = PoolVector2Array( 479.714, 434.779, 500.526, 439.833, 513.607, 447.265, 523.715, 460.941, 527.877, 475.806, 524.607, 493.347, 521.337, 500.185, 507.958, 511.185, 493.985, 516.834, 485.363, 517.428, 474.66, 516.537, 468.12, 516.239, 461.579, 512.374, 454.146, 507.915, 445.822, 501.077, 441.66, 490.969, 438.687, 482.347, 439.281, 471.941, 440.471, 460.941, 447.011, 453.211, 457.714, 443.995, 469.012, 439.238 )
+
+[node name="BruitagePoint" type="AudioStreamPlayer2D" parent="Poele"]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="Interface" type="Control" parent="."]
+margin_top = -1.12244
+margin_right = 40.0
+margin_bottom = 38.8776
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PopupPausePassive" type="Popup" parent="Interface"]
+pause_mode = 2
+visible = true
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PausePassive" type="Button" parent="Interface/PopupPausePassive"]
+margin_left = 353.581
+margin_top = 223.534
+margin_right = 626.581
+margin_bottom = 324.534
+custom_fonts/font = SubResource( 2 )
+text = "Reprendre"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PauseActive" type="Button" parent="Interface"]
+margin_right = 117.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 3 )
+text = "pAUSE"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PauseActive2" type="Button" parent="Interface"]
+pause_mode = 2
+margin_left = 813.758
+margin_top = -1.04086
+margin_right = 1023.76
+margin_bottom = 57.9591
+custom_fonts/font = SubResource( 3 )
+text = "Recommencer"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundDuTitre" type="Panel" parent="Interface"]
+margin_left = 312.159
+margin_top = -1.36359
+margin_right = 655.159
+margin_bottom = 38.6364
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Titre" type="Label" parent="Interface"]
+margin_left = 341.0
+margin_top = 2.0
+margin_right = 635.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 4 )
+text = "Crepes Games"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PopupGameOver" type="Popup" parent="Interface"]
+pause_mode = 2
+visible = true
+margin_left = 280.0
+margin_top = -30.8776
+margin_right = 320.0
+margin_bottom = 9.12244
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Interface/PopupGameOver"]
+margin_left = 80.0
+margin_top = 272.0
+margin_right = 328.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Interface/PopupGameOver"]
+margin_left = 88.0
+margin_top = 289.122
+margin_right = 305.0
+margin_bottom = 322.122
+custom_fonts/font = SubResource( 5 )
+text = "Game Over !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZoneDeGameOver" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="HitboxZoneDeGameOver" type="CollisionPolygon2D" parent="ZoneDeGameOver"]
+polygon = PoolVector2Array( -8, 600, 1024, 608, 1024, 616, -8, 608 )
+
+[node name="MusicBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="BruitageGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 15.0
+stream_paused = true
+[connection signal="timeout" from="SpawnDesCrepes" to="PointsApparitions" method="_on_SpawnDesCrepes_timeout"]
+[connection signal="body_entered" from="Poele/ZoneHitboxDeLaCrepe" to="Poele" method="_on_ZoneHitboxDeLaCrepe_body_entered"]
+[connection signal="pressed" from="Interface/PopupPausePassive/PausePassive" to="." method="_on_PausePassive_pressed"]
+[connection signal="pressed" from="Interface/PauseActive" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Interface/PauseActive2" to="." method="_on_PauseActive2_pressed"]
+[connection signal="body_entered" from="ZoneDeGameOver" to="." method="_on_ZoneDeGameOver_body_entered"]
+[connection signal="finished" from="MusicBackground" to="." method="_on_MusicBackground_finished"]

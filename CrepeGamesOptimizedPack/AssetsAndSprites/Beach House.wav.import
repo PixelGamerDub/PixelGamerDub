@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Beach House.wav-73dc7e79524b1985a71faf3ee3ba8248.sample"
+
+[deps]
+
+source_file="res://AssetsAndSprites/Beach House.wav"
+dest_files=[ "res://.import/Beach House.wav-73dc7e79524b1985a71faf3ee3ba8248.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
